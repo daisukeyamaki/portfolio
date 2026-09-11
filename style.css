@@ -864,10 +864,23 @@ a {
 
 }
 
+.works-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: var(--text-muted);
+}
+
 
 .works-card {
 
-    min-height: 330px;
+    min-height: 30px;
 
     padding: 32px;
 
