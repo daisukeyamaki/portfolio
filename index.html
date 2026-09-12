@@ -107,11 +107,6 @@
 
         <div class="hero-symbol">
 
-            <div class="math-symbol">
-                $$
-                \Pi \!\! = \!\! \overline{\Pi_K} \!\! - \!\! \overline{\Lambda_K}
-                $$
-            </div>
 
             <div class="math-sub">
                 AI × Mathematics
@@ -194,10 +189,31 @@
                 </ul>
 
             </div>
+            <br>
+            <div class="skill-card">
+
+                <h3>
+                    Research Interests as Researcher
+                </h3>
+                <ul>
+
+                    <li>
+                        <strong>Mathematics:</strong> Complex Analysis / Riemann surfaces / Discrete structures 
+                    </li>
+                    <li>
+                        <strong>Applied mathematics:</strong> Probability / Ito formula / HJB equations / Stochastic differential equations
+                    </li>
+
+
+
+                </ul>
+
+            </div>
 
     </div>
 
 </section>
+
 <!-- ========================================
      WORKS
 ======================================== -->
@@ -224,9 +240,13 @@
             <h3>
                 河川水位予測モデル構築
             </h3>
-            河川水位の時系列データを対象とした機械学習モデルの設計・実装・学習・評価を担当<br>
+            <p>
+            河川水位の時系列データを対象とした機械学習モデルの設計・実装・学習・評価を担当。<br>
+            時系列データに対する帰納バイアスとして微分方程式を組み込み、モデルのブラックボックス性を軽減した予測モデルを構築。<br>
+            また、未来の水位予測では多様な特徴量が必要となる一方、実運用において将来時点の全ての特徴量を取得することは困難である。そこで、取得できない特徴量による不確実性をノイズとしてモデル化し、確率微分方程式（SDE）を組み込むことで、予測の不確実性を考慮したモデルを設計・構築した。
+            </p>
             Model : DNN <br>
-            Using : Pytorch  <br>
+            Using : PyTorch / Pandas <br>
             Method : Bootstrap sampling / Inductive bias (SDE)
         </article>
         <br>
@@ -242,9 +262,12 @@
             <h3>
                 道路異常検出モデル構築
             </h3>
-            ドライブレコーダーの動画から道路の異常検出モデルを構築。設計・実装・訓練データ作成・学習を担当<br>
+            <p>
+            ドライブレコーダーの動画から道路の異常検出モデルを構築。設計・実装・訓練データ作成・学習を担当。<br>
+
+            </p>
             Model : PSNet / SSD / ViT <br>
-            Using : Pytorch  <br>
+            Using : PyTorch / Open CV <br>
         </article>
         <br>
         <article class="works-card">
@@ -259,9 +282,11 @@
             <h3>
                 技術者支援ツール（チャットボット）構築・検証
             </h3>
-            Azure上にRAGを構築し、有用性を評価。技術調査・DB設計・実装・デプロイを担当<br>
+            <p>
+            PDFファイルからテキストを抽出し、チャンク分割・ベクトル化した上でAzure AI Searchにインデックス登録。PythonでRAGシステムを構築し、StreamlitによるUIを実装。VMへのデプロイおよびテスト運用まで一貫して担当。技術調査・データベース設計・実装・デプロイを実施。<br>
+            </p>
             Model : GPTs / Embedding models <br>
-            Using : Pytorch / AzureOpenAI <br>
+            Using : PyTorch / AzureOpenAI <br>
             Cloud : Azure (VM / AzureOpenAI / Azure AI Search)
         </article>
         <br>
@@ -277,9 +302,13 @@
             <h3>
                 確率推定モデル構築
             </h3>
-            2値分類タスクに中心極限定理を組み合わせた統計学的に整合性のある機械学習モデルの設計・実装・学習・評価を担当<br>
+            <p>
+                2値分類タスクに中心極限定理を組み合わせた、統計学的に整合性のある機械学習モデルの設計・実装・学習・評価を担当。<br>
+                従来の2値分類モデルの出力確率が必ずしも真の確率を意味しないという課題に対し、データ駆動で確率分布を推定する手法を構築。中心極限定理に基づき、推定値を正規分布として扱うことで、確率の推定および数値計算を可能にした。
+
+            </p>
             Model : DNN <br>
-            Using : Pytorch  <br>
+            Using : PyTorch  <br>
             Method : Bootstrap sampling / Inductive bias (Central Limit Theorem)
         </article>
         <br>
@@ -295,9 +324,14 @@
             <h3>
                 業務検索システム構築
             </h3>
-           ローカルEmbedding ModelをLoRA等により軽量ファインチューニングし、ドメイン特化型の検索システムを設計・構築。<br>
+            <p>
+                業務内容をベクトル化し、Embedding Modelによるベクトル検索を用いた検索システムを構築。<br>
+                専門用語やドメイン固有の表現への対応を目的として、Embedding ModelのLoRAによる軽量ファインチューニングを実施。
+                さらに、検索クエリの拡張機能として、SLMを用いたHyDE（Hypothetical Document Embeddings）を補助機能として実装。
+
+            </p>
             Model : Embedding Model / SLM (HuggingFace) <br>
-            Using : Pytorch / Transformers / peft <br>
+            Using : PyTorch / Transformers / PEFT <br>
             Method : HyDE(SLM) / LoRA(Embedding Model)
         </article>
     </div>
@@ -317,7 +351,7 @@
         </p>
 
         <h2>
-            Papers / Technical reports
+            Papers / Technical Reports
         </h2>
 
 
@@ -356,10 +390,7 @@
 
 
                 <p>
-                 In this paper, we define a matrix and call this matrix the associate matrix. Then, we prove
-                that among the three matrices, which are a period matrix, a combinatorial period matrix which is
-                introduced by Wilson and an associate matrix, there exists a matrix equation.
-                
+                 本論文では、associate matrix（随伴行列）$\Lambda_K$ を定義する。次に、周期行列 $\Pi$ 、Wilsonによって導入された組合せ論的周期行列 $\Pi_K$ 、および随伴行列の3つの行列の間に、以下の行列方程式が成り立つことを証明する。
                 $$
                 \Pi = \overline{\Pi_K} - \overline{\Lambda_K}
                 $$
@@ -417,13 +448,12 @@
 
 
                 <p>
-
-                 A holomorphic 1-form is characterized by its periods. So is a holomorphic 1-cochain. We consider relations between a holomorphic 1-form and a holomorphic 1-cochain which have the same periods and show that holomorphic 1-cochains provide an approximation of holomorphic 1-forms
-                
-                
+                閉リーマン面上の正則1形式 $\omega$ はその$a$-周期によって特徴づけられる。
+                同様に、正則1コチェインも周期によって特徴づけられるため、$\omega$ に対応する正則1コチェイン $\iota_{\omega}$ を以下を満たすように定義する。
                 $$
                 \iota_{\omega}(a_j) = \int_{a_j} \omega
-                $$
+                $$                
+                このとき、$\iota_{\omega}$ は $\omega$ の近似を与えることを証明する。
                 </p>
                 <div class="tags">
 
@@ -474,8 +504,7 @@
 
 
                 <p>
-                    In this report, we construct a proposal model, a surrogate time-series AI model that combines stochastic differential equations with machine learning. 
-                    By incorporating the structure of stochastic dynamics as an inductive bias, we aim to improve the robustness and trustworthiness of the AI model.
+                    本レポートでは、時系列データを対象とした機械学習モデルに微分方程式を帰納バイアスとして組み込み、モデルのブラックボックス性を軽減した予測モデルを提案する。さらに、将来時点で取得が困難な特徴量や観測できない要因による不確実性をノイズとしてモデル化し、確率微分方程式（SDE）を組み込むことで、予測の不確実性を考慮した以下のような時系列予測モデルを構築する。
                     $$
                     dS_t^{AI} = S_t^{AI} \bigg(\frac{\mu_T^{AI}(F)}{T}dt + \frac{\sigma_T^{AI}(F)}{\sqrt{T}}dW_t\bigg)
                     $$
@@ -533,9 +562,9 @@
                 </h4>
 
                 <p> 
-                    In general, binary classification provides class predictions rather than the true underlying probabilities.
-                    In this report, we construct a surrogate AI model which estimates plausible probabilities from data using the Central Limit Theorem.
-                    
+                    一般に、2値分類モデルはクラスを予測するものであり、その出力確率が必ずしも真の確率を意味するとは限らない。
+
+本レポートでは、この課題に対し、中心極限定理を用いてデータから尤もらしい確率分布を推定するサロゲートAIモデルを構築する。推定値を正規分布として扱うことで、確率の推定および数値計算を可能にする。
                     $$
                     \mathbb{P}^{AI}(X=1|F,K) = \frac{\sum_{j=1}^{K}j\cdot\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}{K\cdot\sum_{j=1}^K\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}
                     $$
@@ -594,14 +623,12 @@
 
                 <p>
 
-                Using Rayleigh quotients associated with the combinatorial Hodge
-                star operator, we show that the Rayleigh quotients of holomorphic 1-cochains
-                converge to 1 at a linear rate as the mesh size tends to zero. As applications,
-                we obtain convergence rate estimates for holomorphic 1-cochains and
-                combinatorial period matrices.
+                組合せ論的Hodgeスター作用素に関連するレイリー商
                 $$
                     \rho_{i\bigstar}(\sigma_j) = \frac{\langle i \bigstar \sigma_j, \sigma_j\rangle_C}{\langle \sigma_j, \sigma_j\rangle_C}
-                $$
+                $$                
+                を用いて、メッシュサイズが0に近づくにつれて、正則1コチェインのレイリー商が線形速度で1に収束することを示す。さらに、その応用として、正則1コチェインおよび組合せ論的周期行列の収束速度に関する評価を得る。
+
                 </p>
 
 
