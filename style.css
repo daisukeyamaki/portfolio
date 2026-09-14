@@ -651,203 +651,80 @@ a {
 /* ==================================================
    SKILLS
 ================================================== */
-
 .skills-grid {
-
     display: grid;
-
-    grid-template-columns:
-        repeat(1, 1fr);
-
+    grid-template-columns: repeat(2, 1fr);
     gap: 18px;
-
+    margin-top: 40px;
 }
 
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
 .skill-card {
-
-    min-height: 330px;
-
     padding: 32px;
-
-    background:
-        var(--cream-card);
-
-    border:
-        1px solid var(--border);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-
+    background: var(--cream-card);
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-
 
 .skill-card:hover {
-
-    transform:
-        translateY(-5px);
-
-    box-shadow:
-        0 15px 30px
-        rgba(50, 45, 35, 0.07);
-
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(50, 45, 35, 0.07);
 }
-
-
-.skill-number {
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size: 13px;
-
-    color: var(--text-muted);
-
-}
-
 
 .skill-card h3 {
-
-    margin-top: 25px;
-
-    margin-bottom: 25px;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size: 21px;
-
-    font-weight: 400;
-
+    position: relative;
+    padding-left: 16px;
+    margin: 0 0 18px;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-left: 3px solid var(--accent);
 }
 
+.skill-card h3:not(:first-child) {
+    margin-top: 32px;
+}
 
 .skill-card ul {
-
     margin: 0;
-
     padding: 0;
-
     list-style: none;
-
 }
-
 
 .skill-card li {
-
-    padding: 6px 0;
-
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 12px;
+    padding: 8px 0;
     font-size: 13px;
-
-    color: var(--text-light);
-
-    border-bottom:
-        1px solid
-        rgba(222, 215, 200, 0.6);
-
+    line-height: 1.6;
+    border-bottom: 1px dashed var(--border);
 }
-
 
 .skill-card li:last-child {
-
     border-bottom: none;
-
 }
 
-
-/* ==================================================
-   SKILLS 2
-================================================== */
-
-
-.skill-card-2 {
-
-    min-height: 330px;
-
-    padding: 32px;
-
-    background:
-        var(--navy);
-
-
-    border:
-        1px solid var(--border);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-
+.skill-card li strong {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
 }
 
-
-
-.skill-card-2:hover {
-
-    transform:
-        translateY(-5px);
-
-    box-shadow:
-        0 15px 30px
-        rgba(50, 45, 35, 0.07);
-
+.skill-card li {
+    font-family: "SF Mono", "Menlo", "Consolas", monospace;
+    color: var(--text-light);
 }
-
-
-.skill-card-2 h3 {
-
-    margin-top: 25px;
-
-    margin-bottom: 25px;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size: 21px;
-
-    font-weight: 400;
-
-    color:#CFC6B5;
-
-}
-
-
-.skill-card-2 ul {
-
-    margin: 0;
-
-    padding: 0;
-
-    list-style: none;
-
-}
-
-
-.skill-card-2 li {
-
-    padding: 6px 0;
-
-    font-size: 13px;
-
-    color:#CFC6B5;
-
-    border-bottom:
-        1px solid
-        rgba(222, 215, 200, 0.6);
-
-}
-
-
-.skill-card-2 li:last-child {
-
-    border-bottom: none;
-
-}
-
 
 /* ==================================================
    WORKS
@@ -923,23 +800,90 @@ a {
 }
 
 
-.works-card h3 {
-
-    margin-top: 25px;
-
-    margin-bottom: 25px;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size: 21px;
-
-    font-weight: 400;
-
+:root {
+    --accent: #2c5f8a;
+    --accent-dark: #163d5c;
 }
 
+.works-card h3 {
+    font-size: 23px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
 
+.works-card h4 {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-left: 16px;
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.5;
+    border-left: 3px solid var(--accent);
+}
+
+.works-card h4 strong {
+    display: block;
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+.works-card h4 .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    font-family: -apple-system, "Hiragino Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.works-card h4 .project-link:hover {
+    color: var(--accent-dark);
+    gap: 7px;
+}
+
+.works-spec {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: rgba(44, 95, 138, 0.05);
+    border-radius: 6px;
+    font-family: "SF Mono", "Menlo", "Consolas", monospace;
+    font-size: 13px;
+}
+
+.spec-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    align-items: baseline;
+    gap: 12px;
+    padding: 4px 0;
+}
+
+.spec-row + .spec-row {
+    border-top: 1px dashed var(--border);
+}
+
+.works-spec h5 {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.works-spec span {
+    color: var(--text-light);
+    font-weight: 400;
+}
 .works-card ul {
 
     margin: 0;
@@ -983,7 +927,7 @@ a {
     display: grid;
 
     grid-template-columns:
-        repeat(2, 1fr);
+        repeat(1, 1fr);
 
     gap: 20px;
 
@@ -1044,27 +988,44 @@ a {
 
 }
 
+
 .project-card h4 {
-
-    font-family:
-        Georgia,
-        serif;
-
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-left: 16px;
+    font-family: Georgia, serif;
+    font-size: 21px;
     font-weight: 400;
-
-    line-height: 1.25;
-
+    line-height: 1.5;
+    border-left: 3px solid var(--accent);
 }
 
-.project-card p {
-
-    max-width: 550px;
-
-    font-size: 14px;
-
-    color: var(--text-light);
-
+.project-card h4 strong {
+    display: block;
+    color: #1a1a1a;
+    font-weight: 500;
 }
+
+.project-card h4 .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    font-family: -apple-system, "Hiragino Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.project-card h4 .project-link:hover {
+    color: var(--accent-dark);
+    gap: 7px;
+}
+
 
 .project-card-2 {
 
@@ -1199,7 +1160,6 @@ a {
 
     border-radius: 20px;
 
-    font-size: 10px;
 
     color: var(--text-light);
 
