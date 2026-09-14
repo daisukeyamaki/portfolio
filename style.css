@@ -831,6 +831,10 @@ a {
     font-weight: 500;
 }
 
+.works-card p {
+    font-size: 15px;
+}
+
 .works-card h4 .project-link {
     display: inline-flex;
     align-items: center;
