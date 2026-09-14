@@ -187,7 +187,8 @@
                     </li>
 
                 </ul>
-
+            </div>
+            <div class="skill-card">
                 <h3>
                     Research Interests as Researcher
                 </h3>
@@ -209,6 +210,232 @@
     </div>
 
 </section>
+<!-- ========================================
+     WORKS
+======================================== -->
+<section id="works"
+         class="section">
+
+    <div class="container">
+
+        <p class="section-label">
+            WORKS
+        </p>
+        <h2>
+            Works
+        </h2>
+        <article class="works-card">
+            
+            <div class="project-top">
+
+                <span>
+                    WORK 01
+                </span>
+
+            </div>
+            <h3>
+                時系列予測モデル構築
+            </h3>
+            <h4>
+                <strong>Stochastic Data-Driven Differential Equations</strong>
+                <a href="pdf/Stochastic-Data-Driven-Differential-Equations.pdf"
+                   class="project-link">
+                   [View Technical Report]
+                </a>
+
+            </h4>
+            <p>
+            時系列データを対象とした機械学習モデルの設計・実装・学習・評価を担当。<br>
+            時系列データに対する<strong>帰納バイアス</strong>として微分方程式を組み込み、モデルのブラックボックス性を軽減した予測モデルを構築。<br>
+            予測では多様な特徴量が必要となる一方、実運用において将来時点の全ての特徴量を取得することは困難である。そこで、取得できない特徴量による不確実性をノイズとしてモデル化し、
+            確率微分方程式（SDE）に機械学習$\mu_T^{AI}(F)$と$\sigma_T^{AI}(F)$を組み込むことで、予測の不確実性を考慮した以下のデータ駆動型のSDEモデルを設計・構築した。
+            $$
+                dS_t^{AI} = S_t^{AI} \bigg(\frac{\mu_T^{AI}(F)}{T}dt + \frac{\sigma_T^{AI}(F)}{\sqrt{T}}dW_t\bigg)
+            $$
+            <div class="works-spec">
+                <div class="spec-row">
+                    <h5>Model</h5>
+                    <span>DNN</span>
+                </div>
+                <div class="spec-row">
+                    <h5>Using</h5>
+                    <span>PyTorch / Pandas</span>
+                </div>
+                <div class="spec-row">
+                    <h5>Method</h5>
+                    <span>Bootstrap sampling / Inductive bias (SDE)</span>
+                </div>
+            </div>
+        </article>
+        <br>
+        <article class="works-card">
+            
+            <div class="project-top">
+
+                <span>
+                    WORK 02
+                </span>
+
+            </div>
+            <h3>
+                画像異常検出モデル構築
+            </h3>
+            <p>
+            画像から異常検出モデルをSSDを用いて構築。設計・実装・訓練データ作成・学習を担当。<br>
+
+            </p>
+            <div class="works-spec">
+                <div class="spec-row">
+                    <h5>Model</h5>
+                    <span>SSD</span>
+                </div>
+                <div class="spec-row">
+                    <h5>Using</h5>
+                    <span>PyTorch / Open CV</span>
+                </div>
+            </div>
+        </article>
+        <br>
+        <article class="works-card">
+            
+            <div class="project-top">
+
+                <span>
+                    WORK 03
+                </span>
+
+            </div>
+            <h3>
+                画像異常診断モデル構築
+            </h3>
+            <p>
+            画像内の対象領域をPSPNetによってセグメンテーションし、対象を覆うメッシュを生成。各メッシュ領域に対してViTを用いた正常・異常分類を行うパイプラインを構築した。
+            設計・実装・訓練データ作成・学習を担当。<br>
+
+            </p>
+            <div class="works-spec">
+                <div class="spec-row">
+                    <h5>Model</h5>
+                    <span>PSPNet / ViT</span>
+                </div>
+                <div class="spec-row">
+                    <h5>Using</h5>
+                    <span>PyTorch / Open CV</span>
+                </div>
+            </div>
+        </article>
+        <br>
+        <article class="works-card">
+            
+            <div class="project-top">
+
+                <span>
+                    WORK 04
+                </span>
+
+            </div>
+            <h3>
+                業務支援ツール（チャットボット）構築・検証
+            </h3>
+            <p>
+            PDFファイルからテキストを抽出し、チャンク分割・ベクトル化した上でAzure AI Searchにインデックス登録。PythonでRAGシステムを構築し、StreamlitによるUIを実装。VMへのデプロイおよびテスト運用まで一貫して担当。技術調査・データベース設計・実装・デプロイを実施。<br>
+            </p>
+            <div class="works-spec">
+                <div class="spec-row">
+                    <h5>Model</h5>
+                    <span>GPTs / Embedding Models</span>
+                </div>
+                <div class="spec-row">
+                    <h5>Using</h5>
+                    <span>PyTorch / AzureOpenAI</span>
+                </div>
+                <div class="spec-row">
+                    <h5>Cloud</h5>
+                    <span>Azure (VM / AzureOpenAI / Azure AI Search)</span>
+                </div>
+            </div>
+        </article>
+        <br>
+        <article class="works-card">
+            
+            <div class="project-top">
+
+                <span>
+                    WORK 05
+                </span>
+
+            </div>
+            <h3>
+                確率推定モデル構築
+            </h3>
+            <h4>
+                <strong>Data-Driven Probability Measures</strong>
+                <a href="pdf/Data-Driven-Probability-Measures.pdf"
+                   class="project-link">
+                   [View Technical Report]
+                </a>
+            </h4>
+            <p>
+                2値分類タスクに中心極限定理を組み合わせた、統計学的に整合性のある機械学習モデルの設計・実装・学習・評価を担当。<br>
+                従来の2値分類モデルの出力確率が必ずしも真の確率を意味しないという課題に対し、
+                中心極限定理を用いてデータから尤もらしい確率分布を推定する以下のサロゲートAIモデルを構築した。推定値を正規分布として扱うことで、確率の推定および数値計算を可能にする。
+                $$
+                    \mathbb{P}^{AI}(X=1|F,K) = \frac{\sum_{j=1}^{K}j\cdot\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}{K\cdot\sum_{j=1}^K\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}
+                $$
+            </p>
+            <div class="works-spec">
+                <div class="spec-row">
+                    <h5>Model</h5>
+                    <span>DNN</span>
+                </div>
+                <div class="spec-row">
+                    <h5>Using</h5>
+                    <span>PyTorch / Pandas</span>
+                </div>
+                <div class="spec-row">
+                    <h5>Method</h5>
+                    <span>Bootstrap sampling / Inductive bias (Central Limit Theorem)</span>
+                </div>
+            </div>
+        </article>
+        <br>
+        <article class="works-card">
+            
+            <div class="project-top">
+
+                <span>
+                    WORK 06
+                </span>
+
+            </div>
+            <h3>
+                業務検索システム構築
+            </h3>
+            <p>
+                業務内容をベクトル化し、Embedding Modelによるベクトル検索を用いた検索システムを構築。<br>
+                専門用語やドメイン固有の表現への対応を目的として、Embedding ModelのLoRAによる軽量ファインチューニングを実施。
+                さらに、検索クエリの拡張機能として、SLMを用いたHyDE（Hypothetical Document Embeddings）を補助機能として実装。
+
+            </p>
+            <div class="works-spec">
+                <div class="spec-row">
+                    <h5>Model</h5>
+                    <span>Embedding Model / SLM (HuggingFace)</span>
+                </div>
+                <div class="spec-row">
+                    <h5>Using</h5>
+                    <span>PyTorch / Transformers / PEFT</span>
+                </div>
+                <div class="spec-row">
+                    <h5>Method</h5>
+                    <span>HyDE(SLM) / LoRA(Embedding Model)</span>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+
 
 
 
@@ -226,7 +453,7 @@
         </p>
 
         <h2>
-            Papers / Technical Reports
+            Papers
         </h2>
 
 
@@ -250,15 +477,16 @@
 
 
                 <h3>
-                    A matrix equation
-                    <br>
-                    on triangulated Riemann surfaces
+                    A matrix equation on triangulated Riemann surfaces
                 </h3>
 
                 <h4>
-                    Proc. Japan Acad. Ser. A Math. Sci. 90(2): 37-42  
-                    <br>
-                    DOI: 10.3792/pjaa.90.37
+                    Proc. Japan Acad. Ser. A Math. Sci. 90(2): 37-42  <br>
+                    
+                    <a href="pdf/Stochastic-Data-Driven-Differential-Equations.pdf"
+                        class="project-link">
+                        [View Paper
+                    </a>
                 </h4>
 
 
@@ -284,10 +512,6 @@
                     </span>
 
                 </div>
-            <a href="https://projecteuclid.org/journals/proceedings-of-the-japan-academy-series-a-mathematical-sciences/volume-90/issue-2/A-matrix-equation-on-triangulated-Riemann-surfaces/10.3792/pjaa.90.37.full"
-                   class="project-link">
-                   PDF File
-            </a>
             </article>
 
 
@@ -313,9 +537,12 @@
                 </h3>
 
                 <h4>
-                    Kodai Mathematical Journal 39(2): 297-317
-                    <br>
-                    DOI: 10.2996/kmj/1467830139
+                    Proc. Japan Acad. Ser. A Math. Sci. 90(2): 37-42  <br>
+                    
+                    <a href="https://www.jstage.jst.go.jp/article/kodaimath/39/2/39_297/_article/-char/ja/"
+                        class="project-link">
+                        [View Paper]
+                    </a>
                 </h4>
 
 
@@ -338,134 +565,7 @@
                     </span>
 
                 </div>
-                <a href="https://www.jstage.jst.go.jp/article/kodaimath/39/2/39_297/_article/-char/ja/"
-                    class="project-link">
-                    PDF File
-                </a>
-
             </article>
-
-            <!-- Project 03 -->
-             <article class="project-card-2">
-
-                <div class="project-top">
-
-                    <span>
-                        TECHNICAL REPORT 01
-                    </span>
-
-                    <span>
-                        2026
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    Stochastic Data-Driven Differential Equations
-                </h3>
-
-                <h4>
-                    Zenodo / Report
-                    <br>
-                    DOI: 10.5281/zenodo.22670671
-                </h4>
-
-
-                <p>
-                    本レポートでは、時系列データを対象とした機械学習モデルに微分方程式を帰納バイアスとして組み込み、モデルのブラックボックス性を軽減した予測モデルを提案する。さらに、将来時点で取得が困難な特徴量や観測できない要因による不確実性をノイズとしてモデル化し、確率微分方程式（SDE）を組み込むことで、予測の不確実性を考慮した以下のような時系列予測モデルを構築する。
-                    $$
-                    dS_t^{AI} = S_t^{AI} \bigg(\frac{\mu_T^{AI}(F)}{T}dt + \frac{\sigma_T^{AI}(F)}{\sqrt{T}}dW_t\bigg)
-                    $$
-
-                </p>
-
-
-
-
-                <div class="tags">
-
-                    <span>
-                        Python
-                    </span>
-
-                    <span>
-                        PyTorch
-                    </span>
-
-                    <span>
-                        Time Series
-                    </span>
-
-                </div>
-
-                <a href="pdf/Stochastic-Data-Driven-Differential-Equations.pdf"
-                   class="project-link">
-                   PDF File
-                </a>
-            </article>
-
-            <!-- Project 04 -->
-
-                <article class="project-card-2">
-
-                <div class="project-top">
-
-                    <span>
-                        TECHNICAL REPORT 02
-                    </span>
-
-                    <span>
-                        2026
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    Data-Driven Probability Measures
-                </h3>
-
-                <h4>
-                    Zenodo / Report
-                    <br>
-                    DOI: 10.5281/zenodo.22670565
-                </h4>
-
-                <p> 
-                    一般に、2値分類モデルはクラスを予測するものであり、その出力確率が必ずしも真の確率を意味するとは限らない。
-
-本レポートでは、この課題に対し、中心極限定理を用いてデータから尤もらしい確率分布を推定するサロゲートAIモデルを構築する。推定値を正規分布として扱うことで、確率の推定および数値計算を可能にする。
-                    $$
-                    \mathbb{P}^{AI}(X=1|F,K) = \frac{\sum_{j=1}^{K}j\cdot\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}{K\cdot\sum_{j=1}^K\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}
-                    $$
-
-                </p>
-
-
-                <div class="tags">
-
-                    <span>
-                        Python
-                    </span>
-
-                    <span>
-                        PyTorch
-                    </span>
-
-                    <span>
-                        Probability
-                    </span>
-
-                </div>
-
-                <a href="pdf/Data-Driven-Probability-Measures.pdf"
-                   class="project-link">
-                   PDF File 
-                </a>
-
-            </article>
-
 
             
             <article class="project-card">
@@ -486,11 +586,13 @@
                 <h3>
                     Rayleigh quotients of holomorphic cochains
                 </h3>
-
                 <h4>
-                    Zenodo / Preprint
-                    <br>
-                    DOI: 10.5281/zenodo.22638782
+                    Zenodo / Preprint  <br>
+                    
+                    <a href="pdf/rayleigh-quotients-of-holomorphic-cochains.pdf"
+                        class="project-link">
+                        [View Paper]
+                    </a>
                 </h4>
 
 
@@ -503,12 +605,6 @@
                 を用いて、メッシュサイズが0に近づくにつれて、正則1コチェインのレイリー商が線形速度で1に収束することを示す。さらに、その応用として、正則1コチェインおよび組合せ論的周期行列の収束速度に関する評価を得る。
 
                 </p>
-
-                
-
-
-
-
                 <div class="tags">
 
                     <span>
@@ -525,140 +621,12 @@
 
                 </div>
 
-                <a href="pdf/rayleigh-quotients-of-holomorphic-cochains.pdf"
-                   class="project-link">
-                    PDF File 
-                </a>
-
             </article>
 
         </div>
 
     </div>
 
-</section>
-
-<!-- ========================================
-     WORKS
-======================================== -->
-<section id="works"
-         class="section">
-
-    <div class="container">
-
-        <p class="section-label">
-            WORKS
-        </p>
-        <h2>
-            Works
-        </h2>
-        <article class="works-card">
-            
-            <div class="project-top">
-
-                <span>
-                    WORK 01
-                </span>
-
-            </div>
-            <h3>
-                河川水位予測モデル構築
-            </h3>
-            <p>
-            河川水位の時系列データを対象とした機械学習モデルの設計・実装・学習・評価を担当。<br>
-            時系列データに対する帰納バイアスとして微分方程式を組み込み、モデルのブラックボックス性を軽減した予測モデルを構築。<br>
-            また、未来の水位予測では多様な特徴量が必要となる一方、実運用において将来時点の全ての特徴量を取得することは困難である。そこで、取得できない特徴量による不確実性をノイズとしてモデル化し、確率微分方程式（SDE）を組み込むことで、予測の不確実性を考慮したモデルを設計・構築した。
-            </p>
-            Model : DNN <br>
-            Using : PyTorch / Pandas <br>
-            Method : Bootstrap sampling / Inductive bias (SDE)
-        </article>
-        <br>
-        <article class="works-card">
-            
-            <div class="project-top">
-
-                <span>
-                    WORK 02
-                </span>
-
-            </div>
-            <h3>
-                道路異常検出モデル構築
-            </h3>
-            <p>
-            ドライブレコーダーの動画から道路の異常検出モデルを構築。設計・実装・訓練データ作成・学習を担当。<br>
-
-            </p>
-            Model : PSNet / SSD / ViT <br>
-            Using : PyTorch / Open CV <br>
-        </article>
-        <br>
-        <article class="works-card">
-            
-            <div class="project-top">
-
-                <span>
-                    WORK 03
-                </span>
-
-            </div>
-            <h3>
-                技術者支援ツール（チャットボット）構築・検証
-            </h3>
-            <p>
-            PDFファイルからテキストを抽出し、チャンク分割・ベクトル化した上でAzure AI Searchにインデックス登録。PythonでRAGシステムを構築し、StreamlitによるUIを実装。VMへのデプロイおよびテスト運用まで一貫して担当。技術調査・データベース設計・実装・デプロイを実施。<br>
-            </p>
-            Model : GPTs / Embedding models <br>
-            Using : PyTorch / AzureOpenAI <br>
-            Cloud : Azure (VM / AzureOpenAI / Azure AI Search)
-        </article>
-        <br>
-        <article class="works-card">
-            
-            <div class="project-top">
-
-                <span>
-                    WORK 04
-                </span>
-
-            </div>
-            <h3>
-                確率推定モデル構築
-            </h3>
-            <p>
-                2値分類タスクに中心極限定理を組み合わせた、統計学的に整合性のある機械学習モデルの設計・実装・学習・評価を担当。<br>
-                従来の2値分類モデルの出力確率が必ずしも真の確率を意味しないという課題に対し、データ駆動で確率分布を推定する手法を構築。中心極限定理に基づき、推定値を正規分布として扱うことで、確率の推定および数値計算を可能にした。
-
-            </p>
-            Model : DNN <br>
-            Using : PyTorch  <br>
-            Method : Bootstrap sampling / Inductive bias (Central Limit Theorem)
-        </article>
-        <br>
-        <article class="works-card">
-            
-            <div class="project-top">
-
-                <span>
-                    WORK 05
-                </span>
-
-            </div>
-            <h3>
-                業務検索システム構築
-            </h3>
-            <p>
-                業務内容をベクトル化し、Embedding Modelによるベクトル検索を用いた検索システムを構築。<br>
-                専門用語やドメイン固有の表現への対応を目的として、Embedding ModelのLoRAによる軽量ファインチューニングを実施。
-                さらに、検索クエリの拡張機能として、SLMを用いたHyDE（Hypothetical Document Embeddings）を補助機能として実装。
-
-            </p>
-            Model : Embedding Model / SLM (HuggingFace) <br>
-            Using : PyTorch / Transformers / PEFT <br>
-            Method : HyDE(SLM) / LoRA(Embedding Model)
-        </article>
-    </div>
 </section>
 
 
