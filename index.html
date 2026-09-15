@@ -22,30 +22,6 @@
         MathJax = {
             tex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']]
-            }<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="AI Engineer / AI Product Manager Portfolio">
-
-    <title>YAMAKI Daisuke | AI Engineer / AI PM</title>
-
-    <link rel="stylesheet"
-          href="style.css">
-
-    <meta charset="UTF-8">
-    <title>Mathematics</title>
-
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
             }
         };
     </script>
@@ -114,7 +90,7 @@
         <div class="hero-text">
 
             <p class="hero-label">
-                MATHEMATICAL RESEARCHER / AI ENGINEER
+                MATHEMATICAL RESEARCHER / <br> AI ENGINEER
             </p>
 
             <h1>
@@ -129,14 +105,57 @@
         </div>
 
 
-        <div class="hero-symbol">
+    </div>
 
+</section>
 
-            <div class="math-sub">
-                AI × Mathematics
-            </div>
+<section id="about"
+         class="section">
 
-        </div>
+    <div class="container">
+        <h2>
+            About
+        </h2>
+        <h3>
+            Engineering
+        </h3>
+
+        <p>
+            数学を専門とする博士（理学）および技術経営修士（MOT）。
+
+            現在は、生成AI・機械学習・RAG・AIエージェントなどの技術を対象に、技術調査からPoC、システム設計、実装、評価まで幅広く取り組んでいます。
+
+            数学とAIエンジニアリング、そしてビジネスの橋渡しを通じて、信頼性・解釈可能性・実用性を重視したAIシステムの構築を目指しています。
+
+            <br>
+
+            特に、帰納バイアス（Inductive Bias）やAIエージェントにおけるAIの制御について重点的に研究・探究しています。帰納バイアスによる学習の方向づけと、AIエージェントの計画・行動・検証を通じた制御に着目し、信頼できるAI（Trustworthy AI）の実現に向けて、AIの信頼性・解釈可能性・実用性を高めるための手法を考察しています。
+
+        </p>
+        
+        <a href="#works">
+            [View Works]
+        </a>
+
+        
+        <h3>
+            Research
+        </h3>
+
+        <p>
+            博士課程修了後、研究員などを経て、現在は独立して研究を継続しています。
+
+            研究テーマは、リーマン面上の離散構造です。
+
+            リーマン面は、局所的には複素平面と同じ構造を持つ曲面であり、複素解析学の重要な研究対象です。私は、リーマン面を三角形分割などの離散構造によって近似・表現し、その幾何学的・解析的性質を数学的に研究しています。
+
+            具体的には、離散微分幾何学や組合せ論的ホッジ理論の観点から、リーマン面上の微分形式や周期行列などの不変量を対象に、連続的な理論との関係や近似の収束性を考察しています。
+            
+
+        </p>
+        <a href="#Publication">
+            [View Papers]
+        </a>
 
     </div>
 
@@ -157,7 +176,7 @@
         </p>
 
         <h2>
-            Technical Skills
+            Skills
         </h2>
 
 
@@ -261,21 +280,23 @@
                 時系列予測モデル構築
             </h3>
             <h4>
-                <strong>Stochastic Data-Driven Differential Equations</strong>
+                <strong>Stochastic Data-Driven Differential Equations</strong>    
+                <p>
+                   DOI:  10.5281/zenodo.22670671           
                 <a href="pdf/Stochastic-Data-Driven-Differential-Equations.pdf"
                    class="project-link">
                    [View Technical Report]
                 </a>
+                </p>        
             
-            
-            <p>
-            時系列データに対する帰納バイアスとして微分方程式を組み込み、モデルのブラックボックス性を軽減した予測モデルを構築。<br>
-            予測では多様な特徴量が必要となる一方、実運用において将来時点の全ての特徴量を取得することは困難である。そこで、取得できない特徴量による不確実性をノイズとしてモデル化し、
-            確率微分方程式（SDE）に機械学習$\mu_T^{AI}(F)$と$\sigma_T^{AI}(F)$を組み込むことで、予測の不確実性を考慮した以下のデータ駆動型のSDEモデルを設計・構築した。
-            $$
-                dS_t^{AI} = S_t^{AI} \bigg(\frac{\mu_T^{AI}(F)}{T}dt + \frac{\sigma_T^{AI}(F)}{\sqrt{T}}dW_t\bigg)
-            $$
-            </p>
+                <p>
+                時系列データに対する帰納バイアスとして微分方程式を組み込み、モデルのブラックボックス性を軽減した予測モデルを構築。<br>
+                予測では多様な特徴量が必要となる一方、実運用において将来時点の全ての特徴量を取得することは困難である。そこで、取得できない特徴量による不確実性をノイズとしてモデル化し、
+                確率微分方程式（SDE）に機械学習$\mu_T^{AI}(F)$と$\sigma_T^{AI}(F)$を組み込むことで、予測の不確実性を考慮した以下のデータ駆動型のSDEモデルを設計・構築した。
+                $$
+                    dS_t^{AI} = S_t^{AI} \bigg(\frac{\mu_T^{AI}(F)}{T}dt + \frac{\sigma_T^{AI}(F)}{\sqrt{T}}dW_t\bigg)
+                $$
+                </p>
             </h4>
             <div class="works-spec">
                 <div class="spec-row">
@@ -365,18 +386,22 @@
             </h3>
             <h4>
                 <strong>Data-Driven Probability Measures</strong>
-                <a href="pdf/Data-Driven-Probability-Measures.pdf"
-                   class="project-link">
-                   [View Technical Report]
-                </a>
+                <p>
+                    DOI: 10.5281/zenodo.22670565
+                    <a href="pdf/Data-Driven-Probability-Measures.pdf"
+                    class="project-link">
+                    [View Technical Report]
+                    </a>
+
+                </p>
             
-            <p>
-                従来の2値分類モデルの出力確率が必ずしも真の確率を意味しないという課題に対し、
-                中心極限定理を用いてデータから尤もらしい確率分布を推定する以下のサロゲートAIモデルを構築した。推定値を正規分布として扱うことで、確率の推定および数値計算を可能にする。
-                $$
-                    \mathbb{P}^{AI}(X=1|F,K) = \frac{\sum_{j=1}^{K}j\cdot\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}{K\cdot\sum_{j=1}^K\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}
-                $$
-            </p>
+                <p>
+                    従来の2値分類モデルの出力確率が必ずしも真の確率を意味しないという課題に対し、
+                    中心極限定理を用いてデータから尤もらしい確率分布を推定する以下のサロゲートAIモデルを構築した。推定値を正規分布として扱うことで、確率の推定および数値計算を可能にする。
+                    $$
+                        \mathbb{P}^{AI}(X=1|F,K) = \frac{\sum_{j=1}^{K}j\cdot\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}{K\cdot\sum_{j=1}^K\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}
+                    $$
+                </p>
             </h4>
             <div class="works-spec">
                 <div class="spec-row">
@@ -579,890 +604,14 @@
                     Rayleigh quotients of holomorphic cochains
                 </h3>
                 <h4>
-                    Zenodo / Preprint  <br>
-                    
-                    <a href="pdf/rayleigh-quotients-of-holomorphic-cochains.pdf"
-                        class="project-link">
-                        [View Paper]
-                    </a>
-                </h4>
-
-
-                <p>
-
-                組合せ論的Hodgeスター作用素に関連するレイリー商
-                $$
-                    \rho_{i\bigstar}(\sigma_j) = \frac{\langle i \bigstar \sigma_j, \sigma_j\rangle_C}{\langle \sigma_j, \sigma_j\rangle_C}
-                $$                
-                を用いて、メッシュサイズが0に近づくにつれて、正則1コチェインのレイリー商が線形速度で1に収束することを示す。さらに、その応用として、正則1コチェインおよび組合せ論的周期行列の収束速度に関する評価を得る。
-
-                </p>
-                <div class="tags">
-
-                    <span>
-                        holomorphic 1-cochains
-                    </span>
-
-                    <span>
-                        Rayleigh quotients
-                    </span>
-
-                    <span>
-                        combinatorial period matrices
-                    </span>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ========================================
-     CAREER
-======================================== -->
-
-<section id="career"
-         class="section">
-
-    <div class="container">
-
-        <p class="section-label">
-            CAREER
-        </p>
-
-        <h2>
-            Career
-        </h2>
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2026.10 —
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        One人事株式会社
-                    </h3>
-
+                    Zenodo / Preprint 
                     <p>
-                        AI PM
+                        DOI: 10.5281/zenodo.22638782
+                        <a href="pdf/rayleigh-quotients-of-holomorphic-cochains.pdf"
+                            class="project-link">
+                            [View Paper]
+                        </a>
                     </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2025.02 — 2026.09
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        NiX JAPAN株式会社
-                        
-                    </h3>
-
-                    <p>
-                        担当課長 / 上級AIエンジニア
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2022.12 — 2025.01
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        ぺブルコーポレーション株式会社
-                        
-                    </h3>
-
-                    <p>
-                        2024.03 - 2025.01
-                        <br>
-                        AIソリューション部 マネージャー
-                        <br>
-                        2022.12 - 2024.02
-                        <br>
-                        Webマーケター / エンジニア
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ========================================
-     EDUCATION
-======================================== -->
-
-<section id="education"
-         class="section">
-
-    <div class="container">
-
-        <p class="section-label">
-            RESEARCH
-        </p>
-
-        <h2>
-            Education
-        </h2>
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2016.04 — 2019.03
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        東京工業大学 理学院 特別研究員
-                    </h3>
-
-                    <p>
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2016.04 — 2017.03
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        東京工業大学 理学院 教務補佐員
-                    </h3>
-
-                    <p>
-                            数学相談室
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2012.04 - 2016.03
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        東京工業大学 大学院理工学研究科 数学専攻 博士課程
-                    </h3>
-
-                    <p>
-                        博士（理学）取得
-                    </p>
-
-                </div>
-            </div>
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2012.04 - 2015.03
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        東京工業大学 大学院イノベーションマネジメント研究科 技術経営専攻
-                    </h3>
-
-                    <p>
-                        専門職学位（技術経営）取得
-                    </p>
-
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2010.04 - 2012.03
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        東京工業大学 大学院理工学研究科 数学専攻 修士課程
-                    </h3>
-
-                    <p>
-                        修士（理学）取得
-                    </p>
-
-                </div>
-            </div>
-
-                
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2006.04 - 2010.03
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        東京電機大学 理工学部 数理科学科
-                    </h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-
-<!-- ========================================
-     FOOTER
-======================================== -->
-
-<footer class="footer">
-
-    <div class="container">
-
-        <p>
-            © 2026 YAMAKI DAISUKE. All rights reserved.
-        </p>
-
-    </div>
-
-</footer>
-
-
-
-</body>
-
-</html>
-        };
-    </script>
-
-    <script async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-</head>
-
-
-<body>
-
-<!-- ========================================
-     HEADER
-======================================== -->
-
-<header class="header">
-
-    <nav class="nav container">
-
-        <a href="#" class="logo">
-            YAMAKI Daisuke, Ph.D. and MOT
-        </a>
-
-        <div class="nav-links">
-
-            <a href="#skills">
-                Skills
-            </a>
-
-            <a href="#Publication">
-                Publication
-            </a>
-            
-            <a href="#works">
-                Works
-            </a>
-
-            <a href="#career">
-                Career
-            </a>
-
-            <a href="#education">
-                Research
-            </a>
-
-
-        </div>
-
-    </nav>
-
-</header>
-
-
-
-<!-- ========================================
-     HERO
-======================================== -->
-
-<main>
-
-<section class="hero">
-
-    <div class="container hero-content">
-
-        <div class="hero-text">
-
-            <p class="hero-label">
-                MATHEMATICAL RESEARCHER / AI ENGINEER
-            </p>
-
-            <h1>
-                YAMAKI Daisuke
-            </h1>
-
-            <h2>
-                Ph.D. / MOT
-            </h2>
-
-
-        </div>
-
-
-        <div class="hero-symbol">
-
-
-            <div class="math-sub">
-                AI × Mathematics
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ========================================
-     SKILLS
-======================================== -->
-
-<section id="skills"
-         class="section section-alt">
-
-    <div class="container">
-
-        <p class="section-label">
-            SKILLS
-        </p>
-
-        <h2>
-            Technical Skills
-        </h2>
-
-
-        <div class="skills-grid">
-
-            <div class="skill-card">
-
-                <h3>
-                    Tech Stack as Engineer
-                </h3>
-                <ul>
-
-                    <li>
-                        <strong>Languages:</strong> C / Python
-                    </li>
-
-                    <li>
-                        <strong>Database:</strong> PostgreSQL
-                    </li>
-
-                    <li>
-                        <strong>Web / UI:</strong> Streamlit / Flask / HTML / CSS
-                    </li>
-
-                    <li>
-                        <strong>Cloud:</strong> Azure
-                    </li>
-
-                    <li>
-                        <strong>AI / ML:</strong> XGBoost / LightGBM / PyTorch / Transformers / PEFT / scikit-learn
-                    </li>
-
-                    <li>
-                        <strong>Vision AI:</strong> PSNet / SSD / YOLO / ViT / DINO
-                    </li>
-
-                    <li>
-                        <strong>LLM / GenAI:</strong> Azure OpenAI / Hugging Face / Ollama / LLM / SLM / VLM
-                    </li>
-
-                    <li>
-                        <strong>RAG / Agents:</strong> Azure AI Search / Embedding Models / LangChain / LangGraph
-                    </li>
-
-                    <li>
-                        <strong>Methods:</strong> LoRA (SLM, Embedding Models) / Quantization (4-bit, 8-bit) / HyDE
-                    </li>
-
-                    <li>
-                        <strong>AI for Science:</strong> Physics-Informed Neural Networks (PINNs) / Complex-Valued Neural Networks
-                    </li>
-
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h3>
-                    Research Interests as Researcher
-                </h3>
-                <ul>
-
-                    <li>
-                        <strong>Mathematics:</strong> Complex Analysis / Riemann surfaces / Discrete structures 
-                    </li>
-                    <li>
-                        <strong>Applied mathematics:</strong> Probability / Ito formula / HJB equations / Stochastic differential equations
-                    </li>
-
-
-
-                </ul>
-
-            </div>
-
-    </div>
-
-</section>
-<!-- ========================================
-     WORKS
-======================================== -->
-<section id="works"
-         class="section">
-
-    <div class="container">
-
-        <p class="section-label">
-            WORKS
-        </p>
-        <h2>
-            Works
-        </h2>
-        <article class="works-card">
-            
-            <div class="project-top">
-
-                <span>
-                    WORK 01
-                </span>
-
-            </div>
-            <h3>
-                時系列予測モデル構築
-            </h3>
-            <h4>
-                <strong>Stochastic Data-Driven Differential Equations</strong>
-                <a href="pdf/Stochastic-Data-Driven-Differential-Equations.pdf"
-                   class="project-link">
-                   [View Technical Report]
-                </a>
-
-            </h4>
-            <p>
-            時系列データを対象とした機械学習モデルの設計・実装・学習・評価を担当。<br>
-            時系列データに対する<strong>帰納バイアス</strong>として微分方程式を組み込み、モデルのブラックボックス性を軽減した予測モデルを構築。<br>
-            予測では多様な特徴量が必要となる一方、実運用において将来時点の全ての特徴量を取得することは困難である。そこで、取得できない特徴量による不確実性をノイズとしてモデル化し、
-            確率微分方程式（SDE）に機械学習$\mu_T^{AI}(F)$と$\sigma_T^{AI}(F)$を組み込むことで、予測の不確実性を考慮した以下のデータ駆動型のSDEモデルを設計・構築した。
-            $$
-                dS_t^{AI} = S_t^{AI} \bigg(\frac{\mu_T^{AI}(F)}{T}dt + \frac{\sigma_T^{AI}(F)}{\sqrt{T}}dW_t\bigg)
-            $$
-            <div class="works-spec">
-                <div class="spec-row">
-                    <h5>Model</h5>
-                    <span>DNN</span>
-                </div>
-                <div class="spec-row">
-                    <h5>Using</h5>
-                    <span>PyTorch / Pandas</span>
-                </div>
-                <div class="spec-row">
-                    <h5>Method</h5>
-                    <span>Bootstrap sampling / Inductive bias (SDE)</span>
-                </div>
-            </div>
-        </article>
-        <br>
-        <article class="works-card">
-            
-            <div class="project-top">
-
-                <span>
-                    WORK 02
-                </span>
-
-            </div>
-            <h3>
-                画像異常検出モデル構築
-            </h3>
-            <p>
-            画像から異常検出モデルをSSDを用いて構築。設計・実装・訓練データ作成・学習を担当。<br>
-
-            </p>
-            <div class="works-spec">
-                <div class="spec-row">
-                    <h5>Model</h5>
-                    <span>SSD</span>
-                </div>
-                <div class="spec-row">
-                    <h5>Using</h5>
-                    <span>PyTorch / Open CV</span>
-                </div>
-            </div>
-        </article>
-        <br>
-        <article class="works-card">
-            
-            <div class="project-top">
-
-                <span>
-                    WORK 03
-                </span>
-
-            </div>
-            <h3>
-                画像異常診断モデル構築
-            </h3>
-            <p>
-            画像内の対象領域をPSPNetによってセグメンテーションし、対象を覆うメッシュを生成。各メッシュ領域に対してViTを用いた正常・異常分類を行うパイプラインを構築した。
-            設計・実装・訓練データ作成・学習を担当。<br>
-
-            </p>
-            <div class="works-spec">
-                <div class="spec-row">
-                    <h5>Model</h5>
-                    <span>PSPNet / ViT</span>
-                </div>
-                <div class="spec-row">
-                    <h5>Using</h5>
-                    <span>PyTorch / Open CV</span>
-                </div>
-            </div>
-        </article>
-        <br>
-        <article class="works-card">
-            
-            <div class="project-top">
-
-                <span>
-                    WORK 04
-                </span>
-
-            </div>
-            <h3>
-                業務支援ツール（チャットボット）構築・検証
-            </h3>
-            <p>
-            PDFファイルからテキストを抽出し、チャンク分割・ベクトル化した上でAzure AI Searchにインデックス登録。PythonでRAGシステムを構築し、StreamlitによるUIを実装。VMへのデプロイおよびテスト運用まで一貫して担当。技術調査・データベース設計・実装・デプロイを実施。<br>
-            </p>
-            <div class="works-spec">
-                <div class="spec-row">
-                    <h5>Model</h5>
-                    <span>GPTs / Embedding Models</span>
-                </div>
-                <div class="spec-row">
-                    <h5>Using</h5>
-                    <span>PyTorch / AzureOpenAI</span>
-                </div>
-                <div class="spec-row">
-                    <h5>Cloud</h5>
-                    <span>Azure (VM / AzureOpenAI / Azure AI Search)</span>
-                </div>
-            </div>
-        </article>
-        <br>
-        <article class="works-card">
-            
-            <div class="project-top">
-
-                <span>
-                    WORK 05
-                </span>
-
-            </div>
-            <h3>
-                確率推定モデル構築
-            </h3>
-            <h4>
-                <strong>Data-Driven Probability Measures</strong>
-                <a href="pdf/Data-Driven-Probability-Measures.pdf"
-                   class="project-link">
-                   [View Technical Report]
-                </a>
-            </h4>
-            <p>
-                2値分類タスクに中心極限定理を組み合わせた、統計学的に整合性のある機械学習モデルの設計・実装・学習・評価を担当。<br>
-                従来の2値分類モデルの出力確率が必ずしも真の確率を意味しないという課題に対し、
-                中心極限定理を用いてデータから尤もらしい確率分布を推定する以下のサロゲートAIモデルを構築した。推定値を正規分布として扱うことで、確率の推定および数値計算を可能にする。
-                $$
-                    \mathbb{P}^{AI}(X=1|F,K) = \frac{\sum_{j=1}^{K}j\cdot\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}{K\cdot\sum_{j=1}^K\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}
-                $$
-            </p>
-            <div class="works-spec">
-                <div class="spec-row">
-                    <h5>Model</h5>
-                    <span>DNN</span>
-                </div>
-                <div class="spec-row">
-                    <h5>Using</h5>
-                    <span>PyTorch / Pandas</span>
-                </div>
-                <div class="spec-row">
-                    <h5>Method</h5>
-                    <span>Bootstrap sampling / Inductive bias (Central Limit Theorem)</span>
-                </div>
-            </div>
-        </article>
-        <br>
-        <article class="works-card">
-            
-            <div class="project-top">
-
-                <span>
-                    WORK 06
-                </span>
-
-            </div>
-            <h3>
-                業務検索システム構築
-            </h3>
-            <p>
-                業務内容をベクトル化し、Embedding Modelによるベクトル検索を用いた検索システムを構築。<br>
-                専門用語やドメイン固有の表現への対応を目的として、Embedding ModelのLoRAによる軽量ファインチューニングを実施。
-                さらに、検索クエリの拡張機能として、SLMを用いたHyDE（Hypothetical Document Embeddings）を補助機能として実装。
-
-            </p>
-            <div class="works-spec">
-                <div class="spec-row">
-                    <h5>Model</h5>
-                    <span>Embedding Model / SLM (HuggingFace)</span>
-                </div>
-                <div class="spec-row">
-                    <h5>Using</h5>
-                    <span>PyTorch / Transformers / PEFT</span>
-                </div>
-                <div class="spec-row">
-                    <h5>Method</h5>
-                    <span>HyDE(SLM) / LoRA(Embedding Model)</span>
-                </div>
-            </div>
-        </article>
-    </div>
-</section>
-
-
-
-
-
-<!-- ========================================
-     PROJECTS
-======================================== -->
-
-<section id="Publication"
-         class="section">
-
-    <div class="container">
-
-        <p class="section-label">
-            PUBLICATION
-        </p>
-
-        <h2>
-            Papers
-        </h2>
-
-
-        <div class="projects-grid">
-
-
-            <!-- Project 01 -->
-            <article class="project-card">
-
-                <div class="project-top">
-
-                    <span>
-                        PAPER 01
-                    </span>
-
-                    <span>
-                        2014
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    A matrix equation on triangulated Riemann surfaces
-                </h3>
-
-                <h4>
-                    Proc. Japan Acad. Ser. A Math. Sci. 90(2): 37-42  <br>
-                    
-                    <a href="pdf/Stochastic-Data-Driven-Differential-Equations.pdf"
-                        class="project-link">
-                        [View Paper
-                    </a>
-                </h4>
-
-
-                <p>
-                 本論文では、associate matrix（随伴行列）$\Lambda_K$ を定義する。次に、周期行列 $\Pi$ 、Wilsonによって導入された組合せ論的周期行列 $\Pi_K$ 、および随伴行列の3つの行列の間に、以下の行列方程式が成り立つことを証明する。
-                $$
-                \Pi = \overline{\Pi_K} - \overline{\Lambda_K}
-                $$
-                </p>
-
-                <div class="tags">
-
-                    <span>
-                        Triangulated Riemann surface
-                    </span>
-
-                    <span>
-                        combinatorial Hodge theory
-                    </span>
-
-                    <span>
-                         associate matrix
-                    </span>
-
-                </div>
-            </article>
-
-
-            <!-- Project 02 -->
-
-            <article class="project-card">
-
-                <div class="project-top">
-
-                    <span>
-                        PAPER 02
-                    </span>
-
-                    <span>
-                        2016
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    The asymptotic behavior of holomorphic 1-cochains
-                </h3>
-
-                <h4>
-                    Proc. Japan Acad. Ser. A Math. Sci. 90(2): 37-42  <br>
-                    
-                    <a href="https://www.jstage.jst.go.jp/article/kodaimath/39/2/39_297/_article/-char/ja/"
-                        class="project-link">
-                        [View Paper]
-                    </a>
-                </h4>
-
-
-                <p>
-                閉リーマン面上の正則1形式 $\omega$ はその$a$-周期によって特徴づけられる。
-                同様に、正則1コチェインも周期によって特徴づけられるため、$\omega$ に対応する正則1コチェイン $\iota_{\omega}$ を以下を満たすように定義する。
-                $$
-                \iota_{\omega}(a_j) = \int_{a_j} \omega
-                $$                
-                このとき、$\iota_{\omega}$ は $\omega$ の近似を与えることを証明する。
-                </p>
-                <div class="tags">
-
-                    <span>
-                        holomorphic 1-forms
-                    </span>
-
-                    <span>
-                        holomorphic 1-cochains
-                    </span>
-
-                </div>
-            </article>
-
-            
-            <article class="project-card">
-
-                <div class="project-top">
-
-                    <span>
-                        PAPER 03
-                    </span>
-
-                    <span>
-                        2026
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    Rayleigh quotients of holomorphic cochains
-                </h3>
-                <h4>
-                    Zenodo / Preprint  <br>
-                    
-                    <a href="pdf/rayleigh-quotients-of-holomorphic-cochains.pdf"
-                        class="project-link">
-                        [View Paper]
-                    </a>
                 </h4>
 
 
