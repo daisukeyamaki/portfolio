@@ -29,6 +29,14 @@
     <script async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+        mermaid.initialize({
+            startOnLoad: true
+        });
+    </script>
 </head>
 
 
@@ -97,10 +105,6 @@
                 YAMAKI Daisuke
             </h1>
 
-            <h2>
-                Ph.D. / MOT
-            </h2>
-
 
         </div>
 
@@ -126,20 +130,54 @@
 
             数学とAIエンジニアリング、そしてビジネスの橋渡しを通じて、信頼性・解釈可能性・実用性を重視したAIシステムの構築を目指しています。
 
-            <br>
-
-            特に、帰納バイアス（Inductive Bias）やAIエージェントにおけるAIの制御について重点的に研究・探究しています。帰納バイアスによる学習の方向づけと、AIエージェントの計画・行動・検証を通じた制御に着目し、信頼できるAI（Trustworthy AI）の実現に向けて、AIの信頼性・解釈可能性・実用性を高めるための手法を考察しています。
-
         </p>
-        
         <a href="#works">
             [View Works]
         </a>
 
+        <h4>
+            Inductive Bias
+        </h4>
+
+        <p>
+            機械学習における帰納バイアスを、数理モデルを通じて明示的に組み込むことに関心があります。
+
+            帰納バイアス（Inductive Bias）とは、学習データだけでは一意に決定できない問題に対して、モデルがどのような規則性や解を選択するかを方向づける、あらかじめ与えられた仮定や構造のことです。
+
+            機械学習では、データから規則性を学習する一方で、限られた学習データからは複数の解釈や予測が成立する場合があります。対象となる現象について既知の数学的構造や制約をモデルに組み込むことで、学習結果の探索空間を適切に制約し、データだけに依存しないハイブリッドモデルを構築することを目指しています。
+        </p>
+        
+        <a href="#sd3e">
+            [View : Stochastic Data-Driven Differential Equations]
+        </a>
+        <br>
+        <a href="#ddpv">
+            [View : Data-Driven Probability Measures]
+        </a>
+        
+        <h4>
+            AI Agents
+        </h4>
+
+        <p>
+            AIエージェントを、LLMによる単なる対話システムではなく、環境から情報を取得し、状況を判断し、必要なツールを選択・実行しながら、目的に応じて行動する意思決定システムとして捉えています。
+
+            ReAct（Reasoning and Acting）の考え方を取り入れ、LLMによる推論とツールを用いた行動を繰り返すことで、与えられたタスクに対して必要な情報を探索しながら解決するエージェントを構築しています。
+
+            一方で、LLMの推論やツール利用には誤りが生じる可能性があるため、Verify（検証）のプロセスを組み込み、生成した回答や推論結果、参照情報などを検証する仕組みを設計しています。必要に応じて再推論や追加の情報取得を行うことで、単純な一方向の生成ではなく、「推論 → 行動 → 検証 → 修正」というフィードバックループを形成することを目指しています。
+
+            実装では、LangGraphを用いた状態遷移型のエージェントを構築し、MCP（Model Context Protocol）による外部ツールとの接続、RAGによる情報検索、SQLiteによる状態・履歴管理、Human-in-the-Loopによる人間の介入などを組み合わせています。また、LLMの推論とツール利用を分離し、必要に応じてClarifyやVerifyを挟むことで、エージェントの行動を制約・誘導する構成を検討しています。
+        </p>
+        
+
         
         <h3>
-            Mathematics
+            Research
         </h3>
+
+        <h4>
+            Mathematics
+        </h4>
 
         <p>
 
@@ -154,6 +192,37 @@
         <a href="#Publication">
             [View Papers]
         </a>
+
+        <h4>
+            Applied Mathematics
+        </h4>
+
+        <p>
+            応用数学の分野では、MOTでの研究を通じて、金融工学・数理ファイナンスに取り組みました。
+
+            確率・統計を基礎として、ブラウン運動、マルチンゲール、伊藤積分、伊藤の公式、確率微分方程式などを用い、金融市場における不確実な資産価格の変動を数理的にモデル化しました。特に、
+            ポートフォリオにおける最適投資配分を確率制御問題として定式化し、HJB方程式を導出した上で、これを離散化して数値計算が可能な形に落とし込み、C言語による実装・数値実験を通じて最適な投資戦略を数理的に考察しました。
+        </p>
+        <a href="pdf/mot_report.pdf">
+            [View Report]
+        </a>
+
+        <h4>
+            Degrees
+        </h4>
+        <p>
+            ・学士 : 東京電機大学 (2010年)　<br>
+            ・修士（理学）: 東京工業大学 (2012年) <br>
+            ・専門職学位（技術経営）: 東京工業大学 (2015年、デュアルディグリープログラム)<br>
+            ・博士（理学）: 東京工業大学 (2016年)
+        </p>
+        
+        <h4>
+            Awards
+        </h4>
+        <p>
+            ・手島精一記念研究賞（博士論文賞、2017年）
+        </p>
 
     </div>
 
@@ -265,7 +334,8 @@
         <h2>
             Works
         </h2>
-        <article class="works-card">
+        <article id="sd3e" 
+            class="works-card">
             
             <div class="project-top">
 
@@ -364,7 +434,7 @@
             </div>
         </article>
         <br>
-        <article class="works-card">
+        <article id="ddpv" class="works-card">
             
             <div class="project-top">
 
@@ -638,252 +708,6 @@
 </section>
 
 
-<!-- ========================================
-     CAREER
-======================================== -->
-
-<section id="career"
-         class="section">
-
-    <div class="container">
-
-        <p class="section-label">
-            CAREER
-        </p>
-
-        <h2>
-            Career
-        </h2>
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2026.10 —
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        One人事株式会社
-                    </h3>
-
-                    <p>
-                        AI PM
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2025.02 — 2026.09
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        NiX JAPAN株式会社
-                        
-                    </h3>
-
-                    <p>
-                        担当課長 / 上級AIエンジニア
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2022.12 — 2025.01
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        ぺブルコーポレーション株式会社
-                        
-                    </h3>
-
-                    <p>
-                        2024.03 - 2025.01
-                        <br>
-                        AIソリューション部 マネージャー
-                        <br>
-                        2022.12 - 2024.02
-                        <br>
-                        Webマーケター / エンジニア
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ========================================
-     EDUCATION
-======================================== -->
-
-<section id="education"
-         class="section">
-
-    <div class="container">
-
-        <p class="section-label">
-            RESEARCH
-        </p>
-
-        <h2>
-            Education
-        </h2>
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2016.04 — 2019.03
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        東京工業大学 理学院 特別研究員
-                    </h3>
-
-                    <p>
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2016.04 — 2017.03
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        東京工業大学 理学院 教務補佐員
-                    </h3>
-
-                    <p>
-                            数学相談室
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2012.04 - 2016.03
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        東京工業大学 大学院理工学研究科 数学専攻 博士課程
-                    </h3>
-
-                    <p>
-                        博士（理学）取得
-                    </p>
-
-                </div>
-            </div>
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2012.04 - 2015.03
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        東京工業大学 大学院イノベーションマネジメント研究科 技術経営専攻
-                    </h3>
-
-                    <p>
-                        専門職学位（技術経営）取得
-                    </p>
-
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2010.04 - 2012.03
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        東京工業大学 大学院理工学研究科 数学専攻 修士課程
-                    </h3>
-
-                    <p>
-                        修士（理学）取得
-                    </p>
-
-                </div>
-            </div>
-
-                
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2006.04 - 2010.03
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        東京電機大学 理工学部 数理科学科
-                    </h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-        </div>
-
-    </div>
-
-</section>
 
 
 
