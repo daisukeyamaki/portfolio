@@ -152,21 +152,21 @@ a {
     z-index: 2;
 }
 
-.hero-label {
-    margin: 0 0 25px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: var(--text-muted);
-}
-
 .hero h1 {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(50px, 7vw, 90px);
-    font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -4px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+    font-family: "Arial", "Yu Gothic", sans-serif;
+    font-size: 96px;
+    font-weight: 1000;
+
+    letter-spacing: -7px;
+    line-height: 1;
+
+    color: var(--navy);
+    transform: scaleY(1.2);
+    line-height: 0.75;
+
 }
 
 .hero h1 span {
