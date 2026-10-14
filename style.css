@@ -152,21 +152,72 @@ a {
     z-index: 2;
 }
 
+.hero-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 0 32px;
+    font-family: "Michroma", "Arial", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.9;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.hero-label::before {
+    content: "";
+    flex: none;
+    width: 36px;
+    height: 1px;
+    background: var(--accent);
+}
+
 .hero h1 {
-    margin-top: 10px;
-    margin-bottom: 15px;
-
-    font-family: "Arial", "Yu Gothic", sans-serif;
-    font-size: 96px;
-    font-weight: 1000;
-
-    letter-spacing: -7px;
-    line-height: 1;
-
+    position: relative;
+    margin: 0;
+    padding-bottom: 36px;
+    font-family: "Michroma", "Arial", sans-serif;
+    font-size: clamp(30px, 4.6vw, 60px);
+    font-weight: 400;   /* Michromaは太さが1種類のみ */
+    line-height: 1.15;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     color: var(--navy);
-    transform: scaleY(1.2);
-    line-height: 0.75;
+    animation: hero-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
 
+.hero h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 72px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.hero-label {
+    animation: hero-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes hero-rise {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero h1,
+    .hero-label {
+        animation: none;
+    }
 }
 
 .hero h1 span {
@@ -228,15 +279,6 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.hero h2 {
-    margin-top: 0;
-    margin-bottom: 25px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 31px;
-    color: #303131;
-    font-weight: 400;
 }
 
 .math-symbol {
@@ -380,6 +422,26 @@ a {
 #about .container > a:hover {
     color: var(--accent-dark);
     gap: 12px;
+}
+
+/* ---------- Agent diagrams (Mermaid) ---------- */
+
+.agent-diagram {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    margin: 12px 0;
+}
+
+pre.agent-log {
+    margin: 8px 0 20px;
+    padding: 12px;
+    background: rgba(127, 127, 127, 0.12);
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
 }
 
 /* ==================================================
@@ -1034,8 +1096,14 @@ a {
     }
 
     .hero h1 {
-        font-size: 52px;
-        letter-spacing: -2px;
+        font-size: 24px;
+        letter-spacing: 0.1em;
+        padding-bottom: 28px;
+    }
+
+    .hero-label {
+        font-size: 10px;
+        letter-spacing: 0.25em;
     }
 
     .hero-description {
