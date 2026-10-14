@@ -30,11 +30,28 @@
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
 
+    <style>
+        .agent-diagram { display: flex; justify-content: center; overflow-x: auto; margin: 12px 0; }
+        .agent-diagram svg { width: 100% !important; max-width: 900px !important; height: auto !important; }
+        pre.agent-log {
+            background: rgba(127, 127, 127, .12);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 8px 0 20px;
+            overflow-x: auto;
+            font-size: .85rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+    </style>
+
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
 
         mermaid.initialize({
-            startOnLoad: true
+            startOnLoad: true,
+            themeVariables: { fontSize: '18px' },
+            flowchart: { nodeSpacing: 50, rankSpacing: 60, padding: 16 }
         });
     </script>
 </head>
@@ -156,7 +173,7 @@
         </a>
         
         <h4>
-            AI Agent = LLM × Inductive Bias
+            AI Agent
         </h4>
 
         <p>
@@ -164,10 +181,52 @@
 
             ReAct（Reasoning and Acting）の考え方を取り入れ、LLMによる推論とツールを用いた行動を繰り返すことで、与えられたタスクに対して必要な情報を探索しながら解決するエージェントを構築しています。
 
-            一方で、LLMの推論やツール利用には誤りが生じる可能性があるため、Verify（検証）のプロセスを組み込み、生成した回答や推論結果、参照情報などを検証する仕組みを設計しています。必要に応じて再推論や追加の情報取得を行うことで、単純な一方向の生成ではなく、「推論 → 行動 → 検証 → 修正」というフィードバックループを形成することを目指しています。
-
-            実装では、LangGraphを用いた状態遷移型のエージェントを構築し、MCP（Model Context Protocol）による外部ツールとの接続、RAGによる情報検索、SQLiteによる状態・履歴管理、Human-in-the-Loopによる人間の介入などを組み合わせています。また、LLMの推論とツール利用を分離し、必要に応じてClarifyやVerifyを挟むことで、エージェントの行動を制約・誘導する構成を検討しています。
+            一方で、個々のエージェントの推論やツール実行だけでなく、複数のエージェントを連携させるための制御機構にも力を入れています。具体的には、Agent as Toolによるエージェントのツール化や、Handoffによるエージェント間の制御移譲など、タスクに応じて適切なエージェントを選択・実行するアーキテクチャを実装・検証しています。また、エージェント間の役割分担や処理フローを設計し、複雑なタスクを効率的かつ適切に遂行するためのオーケストレーション技術についても取り組んでいます。
         </p>
+
+        <p><strong>Agent as Tool</strong></p>
+            <div class="agent-diagram">
+<pre class="mermaid">
+flowchart TB
+A1([USER])
+A2[SUPERVISOR]
+A3[WEATHER_WORKER]
+A4[TIME_WORKER]
+A1 --&gt;|"現在の時刻と東京の天気を教えて"| A2
+A2 --&gt;|"現在の東京の天気を教えてください"| A3
+A2 --&gt;|"現在の時刻を教えてください"| A4
+A3 --&gt;|"現在の東京の天気は「晴れ時々曇り」で、気温は19.3℃です。"| A2
+A4 --&gt;|"現在の時刻は 2026年10月14日 20時32分です。"| A2
+A2 --&gt;|"現在時刻は 2026年10月14日 20時32分 です。&lt;br/&gt;また、現在の東京の天気が「晴れ時々曇り」で、気温は 19.3℃ です。"| A1
+</pre>
+            </div>
+<pre class="agent-log">[USER] 現在の時刻と東京の天気を教えて -> [SUPERVISOR]
+[SUPERVISOR] 現在の時刻を教えてください -> [TIME_WORKER]
+[SUPERVISOR] 現在の東京の天気を教えてください -> [WEATHER_WORKER]
+[TIME_WORKER] 現在の時刻は 2026年10月14日 20時32分です。 -> [SUPERVISOR]
+[WEATHER_WORKER] 現在の東京の天気は「晴れ時々曇り」で、気温は19.3℃です。 -> [SUPERVISOR]
+[SUPERVISOR] 現在時刻は 2026年10月14日 20時32分 です。
+             また、現在の東京の天気が「晴れ時々曇り」で、気温は 19.3℃ です。 -> [USER]</pre>
+
+        <p><strong>Handoff</strong></p>
+            <div class="agent-diagram">
+<pre class="mermaid">
+flowchart TB
+A1([USER])
+A2[ROUTER_AGENT]
+A3[WEATHER_AGENT]
+A4[TIME_AGENT]
+A1 --&gt;|"現在の時刻と東京の天気を教えて"| A2
+A2 --&gt;|"東京の天気はどうですか？"| A3
+A3 --&gt;|"現在の時刻は不明です。時刻については time_agent に引き継ぎます。&lt;br/&gt;現在の時刻は何ですか？"| A4
+A4 --&gt;|"現在の時刻は2026年10月14日19時33分です。&lt;br/&gt;東京の天気は晴れで、気温は20.1℃です。"| A1
+</pre>
+            </div>
+<pre class="agent-log">[USER] 現在の時刻と東京の天気を教えて -> [ROUTER_AGENT]
+[ROUTER_AGENT] 東京の天気はどうですか？ -> [WEATHER_AGENT]
+[WEATHER_AGENT] 現在の時刻は不明です。時刻については time_agent に引き継ぎます。
+[WEATHER_AGENT] 現在の時刻は何ですか？ -> [TIME_AGENT]
+[TIME_AGENT] 現在の時刻は2026年10月14日19時33分です。東京の天気は晴れで、気温は20.1℃です。 -> [USER]</pre>
         
 
         
