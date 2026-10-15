@@ -184,8 +184,39 @@
             一方で、個々のエージェントの推論やツール実行だけでなく、複数のエージェントを連携させるための制御機構にも力を入れています。具体的には、Agent as Toolによるエージェントのツール化や、Handoffによるエージェント間の制御移譲など、タスクに応じて適切なエージェントを選択・実行するアーキテクチャを実装・検証しています。また、エージェント間の役割分担や処理フローを設計し、複雑なタスクを効率的かつ適切に遂行するためのオーケストレーション技術についても取り組んでいます。
         </p>
 
-        <p><strong>Agent as Tool</strong></p>
+        <p><strong><u>Toy Examples</u></strong></p>
             <div class="agent-diagram">
+        
+<style>
+  .agent-compare {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+  .agent-compare .agent-col > p {
+    margin: 0 0 8px;
+  }
+  .agent-compare .agent-diagram svg {
+    max-width: 100%;
+    height: auto;
+  }
+  .agent-compare .agent-log {
+    overflow-x: auto;
+    font-size: 0.85em;
+  }
+  @media (max-width: 768px) {
+    .agent-compare {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="agent-compare">
+
+  <div class="agent-col">
+    <p><strong>Agent as Tool</strong></p>
+    <div class="agent-diagram">
 <pre class="mermaid">
 flowchart TB
 A1([USER])
@@ -199,17 +230,12 @@ A3 --&gt;|"現在の東京の天気は「晴れ時々曇り」で、気温は19.
 A4 --&gt;|"現在の時刻は 2026年10月14日 20時32分です。"| A2
 A2 --&gt;|"現在時刻は 2026年10月14日 20時32分 です。&lt;br/&gt;また、現在の東京の天気が「晴れ時々曇り」で、気温は 19.3℃ です。"| A1
 </pre>
-            </div>
-<pre class="agent-log">[USER] 現在の時刻と東京の天気を教えて -> [SUPERVISOR]
-[SUPERVISOR] 現在の時刻を教えてください -> [TIME_WORKER]
-[SUPERVISOR] 現在の東京の天気を教えてください -> [WEATHER_WORKER]
-[TIME_WORKER] 現在の時刻は 2026年10月14日 20時32分です。 -> [SUPERVISOR]
-[WEATHER_WORKER] 現在の東京の天気は「晴れ時々曇り」で、気温は19.3℃です。 -> [SUPERVISOR]
-[SUPERVISOR] 現在時刻は 2026年10月14日 20時32分 です。
-             また、現在の東京の天気が「晴れ時々曇り」で、気温は 19.3℃ です。 -> [USER]</pre>
+    </div>
+  </div>
 
-        <p><strong>Handoff</strong></p>
-            <div class="agent-diagram">
+  <div class="agent-col">
+    <p><strong>Handoff</strong></p>
+    <div class="agent-diagram">
 <pre class="mermaid">
 flowchart TB
 A1([USER])
@@ -221,14 +247,14 @@ A2 --&gt;|"東京の天気はどうですか？"| A3
 A3 --&gt;|"現在の時刻は不明です。時刻については time_agent に引き継ぎます。&lt;br/&gt;現在の時刻は何ですか？"| A4
 A4 --&gt;|"現在の時刻は2026年10月14日19時33分です。&lt;br/&gt;東京の天気は晴れで、気温は20.1℃です。"| A1
 </pre>
-            </div>
-<pre class="agent-log">[USER] 現在の時刻と東京の天気を教えて -> [ROUTER_AGENT]
-[ROUTER_AGENT] 東京の天気はどうですか？ -> [WEATHER_AGENT]
-[WEATHER_AGENT] 現在の時刻は不明です。時刻については time_agent に引き継ぎます。
-[WEATHER_AGENT] 現在の時刻は何ですか？ -> [TIME_AGENT]
-[TIME_AGENT] 現在の時刻は2026年10月14日19時33分です。東京の天気は晴れで、気温は20.1℃です。 -> [USER]</pre>
-        
+    </div>
+  </div>
 
+</div>
+            </div>
+        <a href="https://github.com/daisukeyamaki/AgentAsTool-Handoff">
+            [View Reference : GitHub]
+        </a>
         
         <h3>
             Research
