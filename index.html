@@ -161,30 +161,39 @@
 
             帰納バイアス（Inductive Bias）とは、学習データだけでは一意に決定できない問題に対して、モデルがどのような規則性や解を選択するかを方向づける、あらかじめ与えられた仮定や構造のことです。
 
-            機械学習では、データから規則性を学習する一方で、限られた学習データからは複数の解釈や予測が成立する場合があります。対象となる現象について既知の数学的構造や制約をモデルに組み込むことで、学習結果の探索空間を適切に制約し、データだけに依存しないハイブリッドモデルを構築することを目指しています。
+            機械学習では、データから規則性を学習する一方で、限られた学習データからは複数の解釈や予測が成立する場合があります。対象となる現象について既知の数学的構造や制約をモデルに組み込むことで、学習結果の探索空間を適切に制約し、以下のようなデータだけに依存しないハイブリッドモデルを構築することを目指しています。
         </p>
-        
-        <a href="#sd3e">
-            [View : Stochastic Data-Driven Differential Equations]
-        </a>
+        <p><strong><u>Stochastic Data-Driven Differential Equations</u></strong> <a href="#sd3e"> [Reference : Work]</a></p>       
+        $$
+            dS_t^{AI} = S_t^{AI} \bigg(\frac{\mu_T^{AI}(F)}{T}dt + \frac{\sigma_T^{AI}(F)}{\sqrt{T}}dW_t\bigg)
+        $$
         <br>
-        <a href="#ddpv">
-            [View : Data-Driven Probability Measures]
-        </a>
+        <p><strong><u>Data-Driven Probability Measures</u></strong> <a href="#ddpv"> [Reference : Work]</a></p> 
+        $$
+            \mathbb{P}^{AI}(X=1|F,K) = \frac{\sum_{j=1}^{K}j\cdot\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}{K\cdot\sum_{j=1}^K\mathbb{P}\bigg(\overline{Z}^K(F)=\frac{j}{K}\bigg)}
+        $$
         
-        <h4>
-            AI Agent
-        </h4>
+        <h4>AI Agent</h4>
 
         <p>
-            AIエージェントを、LLMによる単なる対話システムではなく、環境から情報を取得し、状況を判断し、必要なツールを選択・実行しながら、目的に応じて行動する意思決定システムとして捉えています。
-
-            ReAct（Reasoning and Acting）の考え方を取り入れ、LLMによる推論とツールを用いた行動を繰り返すことで、与えられたタスクに対して必要な情報を探索しながら解決するエージェントを構築しています。
-
-            一方で、個々のエージェントの推論やツール実行だけでなく、複数のエージェントを連携させるための制御機構にも力を入れています。具体的には、Agent as Toolによるエージェントのツール化や、Handoffによるエージェント間の制御移譲など、タスクに応じて適切なエージェントを選択・実行するアーキテクチャを実装・検証しています。また、エージェント間の役割分担や処理フローを設計し、複雑なタスクを効率的かつ適切に遂行するためのオーケストレーション技術についても取り組んでいます。
+            AIエージェントを、LLMによる単なる対話システムではなく、環境から情報を取得し、状況を判断し、ツールを選択・実行しながら目的に応じて行動する意思決定システムとして捉えています。
+            ReAct（Reasoning and Acting）に基づき、LLMによる推論とツール実行を反復することで、タスク解決に必要な情報を探索的に収集するエージェントを構築しています。
         </p>
 
-        <p><strong><u>Toy Examples</u></strong></p>
+        <p>
+            現在特に関心を持っているのは、<strong>マルチエージェントにおけるAI同士の連携</strong>です。
+            複雑なタスクでは、複数のエージェントが役割を分担し、互いの出力を受け渡しながら協調する構造そのものが性能を左右すると考えています。
+            連携の仕方は、制御の所在、情報の受け渡し方、実行グラフの形など、設計次第でいくらでも構成できます。
+           一例として、以下のような連携方法などを考察してます。
+        </p>
+
+        <ul>
+            <li><strong>Agent as Tool</strong>：サブエージェントを関数として呼び出す形式です。制御は supervisor に保持され、サブエージェントは戻り値を返すだけです。</li>
+            <li><strong>Handoff</strong>：制御そのものを別のエージェントへ移譲する形式です。移譲先が USER に直接応答します。</li>
+            <li><strong>Fan-out / Fan-in</strong>：独立な複数エージェントへ並列分岐し、ANCHOR が出力を集約する形式です。</li>
+        </ul>
+   
+        <p><strong><u>Examples</u></strong></p>
             <div class="agent-diagram">
         
 <style>
@@ -221,14 +230,17 @@
 flowchart TB
 A1([USER])
 A2[SUPERVISOR]
-A3[WEATHER_WORKER]
-A4[TIME_WORKER]
-A1 --&gt;|"現在の時刻と東京の天気を教えて"| A2
-A2 --&gt;|"現在の東京の天気を教えてください"| A3
-A2 --&gt;|"現在の時刻を教えてください"| A4
-A3 --&gt;|"現在の東京の天気は「晴れ時々曇り」で、気温は19.3℃です。"| A2
-A4 --&gt;|"現在の時刻は 2026年10月14日 20時32分です。"| A2
-A2 --&gt;|"現在時刻は 2026年10月14日 20時32分 です。&lt;br/&gt;また、現在の東京の天気が「晴れ時々曇り」で、気温は 19.3℃ です。"| A1
+A3[AGENT 1]
+A4[AGENT 2]
+A5[AGENT 3]
+A1 --&gt; A2
+A2 --&gt; A3
+A2 --&gt; A4
+A2 --&gt; A5
+A3 --&gt; A2
+A4 --&gt; A2
+A5 --&gt; A2
+A2 --&gt; A1
 </pre>
     </div>
   </div>
@@ -236,25 +248,52 @@ A2 --&gt;|"現在時刻は 2026年10月14日 20時32分 です。&lt;br/&gt;ま�
   <div class="agent-col">
     <p><strong>Handoff</strong></p>
     <div class="agent-diagram">
-<pre class="mermaid">
+<pre class="mermaid" style="max-width: 250px; margin: auto;">
 flowchart TB
 A1([USER])
-A2[ROUTER_AGENT]
-A3[WEATHER_AGENT]
-A4[TIME_AGENT]
-A1 --&gt;|"現在の時刻と東京の天気を教えて"| A2
-A2 --&gt;|"東京の天気はどうですか？"| A3
-A3 --&gt;|"現在の時刻は不明です。時刻については time_agent に引き継ぎます。&lt;br/&gt;現在の時刻は何ですか？"| A4
-A4 --&gt;|"現在の時刻は2026年10月14日19時33分です。&lt;br/&gt;東京の天気は晴れで、気温は20.1℃です。"| A1
+A2[ROUTER]
+A3[AGENT 1]
+A4[AGENT 2]
+A5[AGENT 3]
+A1 --&gt; A2
+A2 --&gt; A3
+A2 -.-&gt; A4
+A2 -.-&gt; A5
+A3 --&gt; A4
+A3 -.-&gt; A5
+A3 -.-&gt; A1
+A4 --&gt; A5
+A4 -.-&gt; A1
+A4 -.-&gt; A3
+A5 --&gt; A1
+A5 -.-&gt; A3
+A5 -.-&gt; A4
+</pre>
+    </div>
+  </div>
+    <div class="agent-col">
+    <p><strong>Fan-out / Fan-in</strong></p>
+    <div class="agent-diagram">
+<pre class="mermaid" >
+flowchart TB
+A1([USER])
+A2[AGENT 1]
+A3[AGENT 2]
+A4[AGENT 3]
+A5[ANCHOR]
+A1 --&gt; A2
+A1 --&gt; A3
+A1 --&gt; A4
+A2 --&gt; A5
+A3 --&gt; A5
+A4 --&gt; A5
+A5 --&gt; A1
 </pre>
     </div>
   </div>
 
 </div>
-            </div>
-        <a href="https://github.com/daisukeyamaki/AgentAsTool-Handoff">
-            [View Reference : GitHub]
-        </a>
+    </div>
         
         <h3>
             Research
